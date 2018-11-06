@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.NoSuchElementException;
 
 public class Classroom {
     private Collection<Student> students;
@@ -16,6 +17,8 @@ public class Classroom {
         for (Student i : students) {
             if (i.getId().equals(id)){
                 i.addScore(score);
+            }else{
+                throw new NoSuchElementException();
             }
         }
     }
@@ -24,6 +27,9 @@ public class Classroom {
         for (Student i : students) {
             if (i.getId().equals(id)){
                 return i.getScore();
+            }
+            else{
+                throw new NoSuchElementException();
             }
         }
         return -1;
