@@ -13,23 +13,18 @@ public class Classroom {
         students.add(student);
     }
 
-    public void addScoreById(String id, double score) {
+    public void addScoreById(String id, double score) throws NoSuchElementException{
         for (Student i : students) {
             if (i.getId().equals(id)){
                 i.addScore(score);
-            }else{
-                throw new NoSuchElementException();
             }
         }
     }
 
-    public double getScoreById(String id) {
+    public double getScoreById(String id) throws NoSuchElementException{
         for (Student i : students) {
             if (i.getId().equals(id)){
                 return i.getScore();
-            }
-            else{
-                throw new NoSuchElementException();
             }
         }
         return -1;
